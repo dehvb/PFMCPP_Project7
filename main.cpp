@@ -74,6 +74,7 @@ int main()
 {
                       //name, hit points, armor. 
     Dwarf dwarf { "Maldin the Dwarf", 3, 1 };
+    //std::cout << "bla" << std::endl;
     Paladin paladin { "Warrick the Paladin", 5, 2 };
     Dragon dragon { "Garry The Dragon", 200, 50 };
     DragonSlayer dragonSlayer { "Virgil the Dragon Slayer", 8, 5 };
@@ -84,7 +85,7 @@ int main()
     dragon.attack( paladin );
     dwarf.attack( dragon );
     paladin.attack( dragon ); //can't, he's dead
-    
+   
     dragonSlayer.help( paladin ); //now he's not dead
     paladin.attack( dragon ); //he's alive now.
     dragon.attack( dwarf ); //dwarf is dead
