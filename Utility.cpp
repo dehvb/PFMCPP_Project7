@@ -1,5 +1,9 @@
+#include "Character.h"
+#include "Dwarf.h"
+#include "Paladin.h"
+#include "DragonSlayer.h"
+#include "Dragon.h"
 #include "Utility.h"
-//#include <cassert>
 #include "HelpfulItem.h"
 #include "DefensiveItem.h"
 #include "AttackItem.h"
@@ -29,19 +33,6 @@ std::vector<std::unique_ptr<Item>> makeDefensiveItems(int num)
     }
     
     std::cout << "made " << items.size() << " defensive items" << std::endl;
-    return items;
-}
-
-std::vector<std::unique_ptr<Item>> makeAttackItems(int num)
-{
-    std::vector<std::unique_ptr<Item>> items;
-    
-    while( num-- >= 0 )
-    {
-        items.push_back( std::unique_ptr<AttackItem>(new AttackItem()) );
-    }
-    
-    std::cout << "made " << items.size() << " attack items" << std::endl;
     return items;
 }
 
@@ -119,4 +110,11 @@ void useAttackItem(Character* character, Item* item)
     {
         //dragons don't carry attack items!
     }
+}
+
+void levelUp(int& stat, int& initialStat)
+{
+    if (stat < initialStat) {stat = initialStat;}
+    stat *= 1.1;
+    initialStat = stat;
 }
